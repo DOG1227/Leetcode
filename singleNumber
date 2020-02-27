@@ -1,0 +1,27 @@
+public static int singleNumber(int[] nums) {
+        int singleNumber = 0;
+        int i = 0;
+        int j = 0;
+        while (i < nums.length) {
+            if (i == nums.length - 1) {
+                singleNumber = nums[i];
+                break;
+            }
+            if (i == j) {
+                j++;
+            }
+            if (nums[i] != nums[j] && j < nums.length - 1) {
+                j++;
+            }
+            if (nums[i] == nums[j] && i != j) {
+                i++;
+                j = 0;
+            }
+            if (nums[i] != nums[j] && j == nums.length - 1) {
+                singleNumber = nums[i];
+                break;
+            }
+
+        }
+        return singleNumber;
+    }
