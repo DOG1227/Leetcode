@@ -1,0 +1,27 @@
+    public boolean isPalindrome(ListNode head) {
+        boolean isPalindrome = false;
+        ListNode slow = head;
+
+        Stack<Integer> stack = new Stack<>();
+        if (head == null) {
+            return true;
+        }
+
+        while (slow != null) {
+            stack.push(slow.val);
+            slow = slow.next;
+        }
+
+        while (head != null) {
+            int i = stack.pop();
+            if (head.val == i) {
+                isPalindrome = true;
+            } else {
+                isPalindrome = false;
+                break;
+            }
+            head = head.next;
+
+        }
+        return isPalindrome;
+    }
