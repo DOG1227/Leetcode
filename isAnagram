@@ -1,0 +1,27 @@
+public boolean isAnagram(String s, String t) {
+        if (s.length() == 0 && t.length() == 0) {
+            return true;
+        }
+
+        if (s.length() == 0) {
+            return false;
+        }
+
+        if (t.length() == 0) {
+            return false;
+        }
+
+        int[] helper = new int[26];
+        for (char c : s.toCharArray())
+            helper[c - 'a']++;
+        for (char c : t.toCharArray())
+            helper[c - 'a']--;
+        for (int i : helper) {
+            if (i != 0) {
+                return false;
+            }
+
+        }
+
+        return true;
+    }
