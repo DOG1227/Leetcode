@@ -1,0 +1,12 @@
+   public boolean isPowerOfTwo(int n) {
+        if (n == 1 || n == 2) {
+            return true;
+        }
+        int powerOfTwo = 2;
+        while (powerOfTwo <= n / 2) {
+            powerOfTwo = powerOfTwo * 2;
+            if (n == powerOfTwo)
+                return true;
+        }
+        return false;
+    }
