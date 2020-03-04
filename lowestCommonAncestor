@@ -1,0 +1,18 @@
+public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        while (root != null) {
+            if (root == p || root == q) {
+                return root;
+            }
+
+            boolean pIsOnleft = p.val < root.val;
+            boolean rIsOnRight = q.val < root.val;
+
+            if (pIsOnleft != rIsOnRight) {
+                return root;
+            } else {
+                root = pIsOnleft ? root.left : root.right;
+            }
+
+        }
+        return null;
+    }
